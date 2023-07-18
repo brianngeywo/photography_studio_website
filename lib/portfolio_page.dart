@@ -69,7 +69,7 @@ class PortfolioPage extends StatelessWidget {
             height: MediaQuery.of(context).size.height,
             child: const Image(
               image: AssetImage(
-                'assets/background.png',
+                'assets/main.png',
               ),
             ),
           ),
