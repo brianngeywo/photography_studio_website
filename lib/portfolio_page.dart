@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:photography_studio_website/app_bar.dart';
 import 'package:photography_studio_website/company_experience_section.dart';
 import 'package:photography_studio_website/my_services_section.dart';
 import 'package:photography_studio_website/photo_grid_section.dart';
+import 'package:photography_studio_website/social_media_bottom_sheet.dart';
+import 'package:photography_studio_website/test_data.dart';
+
+import 'contact_us.dart';
+import 'gallery_grid.dart';
 
 class PortfolioPage extends StatefulWidget {
   const PortfolioPage({super.key});
@@ -14,67 +21,8 @@ class _PortfolioPageState extends State<PortfolioPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Row(
-          children: [
-            SizedBox(width: MediaQuery.of(context).size.width * 0.17),
-            const FlutterLogo(size: 40.0, textColor: Colors.red),
-            const SizedBox(width: 8.0),
-            const Text(
-              'Midway Media',
-              style: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-          ],
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: MaterialButton(
-              onPressed: () {},
-              child: const Text(
-                'Services',
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: MaterialButton(
-              onPressed: () {},
-              child: const Text(
-                'Team',
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: MaterialButton(
-              onPressed: () {},
-              child: const Text(
-                'Contact Us',
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: MaterialButton(
-              onPressed: () {},
-              child: const Text(
-                'Social Media',
-                style: TextStyle(color: Colors.white, fontFamily: 'Raleway'),
-              ),
-            ),
-          ),
-          SizedBox(width: MediaQuery.of(context).size.width * 0.17),
-        ],
-      ),
+      appBar: MyAppBar(),
+      bottomSheet: SocialMediaBottomSheet(socialMediaLinks: socialMediaLinks,),
       body: ListView(
         children: [
           Container(
@@ -122,14 +70,14 @@ class _PortfolioPageState extends State<PortfolioPage> {
                           ),
                           const SizedBox(height: 5),
                           const Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 8.0),
+                            padding: EdgeInsets.symmetric(vertical: 8.0),
                             child: SizedBox(
+                              width: 50,
                               child: Divider(
                                 color: Colors.redAccent,
                                 height: 4,
                                 thickness: 5,
                               ),
-                              width: 50,
                             ),
                           ),
                           // const Text(
@@ -185,6 +133,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
           MyServicesSection(),
           MyPhotoGridSection(),
           CompanyExperienceSection(),
+          ContactUsSection(),
         ],
       ),
     );
